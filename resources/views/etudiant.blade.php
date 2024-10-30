@@ -16,6 +16,7 @@
             
             <th>Nom</th>
             <th>Prenom</th>
+            <th>Classe</th>
             <th width="280px">Action</th>
          </tr>
          @foreach ($liste as $value)
@@ -23,15 +24,17 @@
             <td>{{$loop->index}}</td>
             <td>{{$value->nom}}</td>
             <td>{{$value->prenom}}</td>
+            <td>{{$value->classe->libelle}}</td>
             <td>
-            <form >
+            <form action="{{ route('etudiant.delete',$value->id) }}" method="post">
                 <a class="btn btn-info" href="{{ route('etudiant.show',$value->id) }}">Show</a>
                 <a class="btn btn-primary" href="{{ route('etudiant.edit',$value->id) }}">Edit</a>
-                <form action="{{ route('etudiant.delete', $value->id) }}" method="POST" style="display:inline;">
-            @method('DELETE')
-            @csrf 
-            <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this student?');">Delete</button>
-        </form>
+                
+                @csrf
+                @method('DELETE')
+                <input type="hidden" name="_method" value="delete">
+                <button type="submit" class="btn btn-danger" onclick="return confirm('Êtes vous sur de vouloir effectuer cette opération');">Delete</button>
+            </form>
 
          </tr>
          @endforeach 

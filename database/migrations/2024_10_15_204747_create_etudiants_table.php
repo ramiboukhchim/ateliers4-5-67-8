@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->String('nom');
             $table->String('prenom');
-            $table->foreignId('classes_id')->constrainted('classes');//cle etrangere 
+            $table->foreignId('classes_id')->constrainted('classe');//cle etrangere 
             $table->timestamps();
         });
         Schema::enableForeignKeyConstraints();  // Corrigez cette ligne

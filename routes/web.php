@@ -24,7 +24,11 @@ Route::get('/create',[EtudiantController::class,"create"])->name('etudiant.creat
 Route::post('/create',[EtudiantController::class,"store"])->name('etudiant.ajouter');
 //2eme methode
 //Route::ressource('etudiant','App\Http\Controllers\EtudiantController')
+
+Route::get('/etudiant/{etudiant}',[EtudiantController::class,"edit"])->name('etudiant.edit');
 Route::put('/etudiant/{etudiant}',[EtudiantController::class,"update"])->name('etudiant.update');
-Route::put('/etudiant/{etudiant}',[EtudiantController::class,"edit"])->name('etudiant.edit');
-Route::get('/etudiant/{etudiant}',[EtudiantController::class,"show"])->name('etudiant.show');
-Route::delete('/etudiant/delete/{etudiant}', [EtudiantController::class, "delete"])->name('etudiant.delete');
+
+
+Route::get('/show/{etudiant}', [EtudiantController::class, "show"])->name('etudiant.show');
+Route::delete('/delete/{etudiant}', [EtudiantController::class,"delete"])->name('etudiant.delete');
+

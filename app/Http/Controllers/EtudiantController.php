@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Etudiant;
-use App\Models\classe;
+use App\Models\classes;
 
 use Illuminate\Http\Request;
 
@@ -13,7 +13,7 @@ class EtudiantController extends Controller
         return view('etudiant',compact('liste'));
     }
     public function create(){
-        $classes=classe::all();
+        $classes=classes::all();
         return view('create',compact('classes'));
     }
     public function store(Request $request){
@@ -28,11 +28,12 @@ class EtudiantController extends Controller
     }
 
     public function edit(Etudiant $etudiant){
-        $classes=Classe::all();
+        $classes=classes::all();
 
         return view('edit',compact('etudiant','classes'));
 
     }
+
     public function update(Request $request,Etudiant $etudiant){
         $request->validate([
             'nom'=>'required',
@@ -49,8 +50,16 @@ class EtudiantController extends Controller
                          ->with('success','Student updated successfully');
     }
     public function delete(Etudiant $etudiant){
-        $etudiant->delete();
-        return redirect()->route('etudiant') // baeed matfasekh tarjaa lel page etudiant 
-                       ->with('success','Post deleted successfully');
+        $etudiant-> delete();
+        return redirect()->route('etudiant')
+                        ->with('success','Post deleted successfully');
     }
+
+
+
+    public function show(Etudiant $etudiant)
+    {
+       return view('show',compact('etudiant'));
+    }
+    
 }
