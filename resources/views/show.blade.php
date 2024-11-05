@@ -9,7 +9,7 @@
         <div class="pull-right">
             <a class="btn btn-primary" href="{{ route('etudiant') }}"> Back</a>
         </div>
-        </div>
+    </div>
 </div>
 
 @if ($errors->any())
@@ -28,7 +28,7 @@
                 <strong>Nom :</strong>
                 {{ $etudiant->nom }}
             </div>
-        </div>
+            </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
                 <strong>Nom :</strong>
@@ -37,7 +37,7 @@
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
-        <strong>Classe :</strong>
+                <strong>Classe :</strong>
                 {{ $etudiant->Classe->libelle}}
 
             </div>
@@ -46,4 +46,3 @@
     </div>
 
 @endsection
-

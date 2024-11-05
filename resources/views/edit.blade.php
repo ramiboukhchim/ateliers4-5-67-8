@@ -16,11 +16,11 @@
     <div class="alert alert-danger">
         <strong>Whoops!</strong> There were some problems with your input.<br><br>
         <ul>
-        @foreach ($errors->all() as $error)
+            @foreach ($errors->all() as $error)
                 <li>{{ $error }}</li>
             @endforeach
         </ul>
-    </div>
+        </div>
 @endif
 
 <form action="{{ route('etudiant.update',$etudiant->id) }}" method="POST">
@@ -42,7 +42,7 @@
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
-        <strong>Classe :</strong>
+                <strong>Classe :</strong>
                 <select name="classe_id" class="form-control">
                     @foreach($classes as $classes)
                     @if($classes->id == $etudiant->classe_id)

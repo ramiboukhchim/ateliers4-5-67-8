@@ -19,13 +19,12 @@
             @foreach ($errors->all() as $error)
                 <li>{{ $error }}</li>
             @endforeach
-        </ul>
+            </ul>
     </div>
 @endif
 
-<form action="{{ route('etudiant.create') }}" method="POST">
+<form action="{{ route('etudiant.ajouter') }}" method="POST">
     @csrf
-    @method('POST')
 
      <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
@@ -43,15 +42,11 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
                 <strong>Classe :</strong>
-                <select name="classe_id" class="form-control">
+                <select name="classes_id" class="form-control">
                 <option></option>
-                @foreach($classes as $classe)
-                     <option value="{{ $classe->id }}" 
-                     {{ (isset($etudiant) && $classe->id == $etudiant->classe_id) ? 'selected' : '' }}>
-                     {{ $classe->libelle }}
-                     </option>
-                @endforeach
-
+                    @foreach($classes as $classes)
+                        <option value="{{$classes->id}}">{{$classes->libelle}}</option>
+                    @endforeach
                 </select>
             </div>
         </div>
@@ -62,5 +57,3 @@
 
 </form>
 @endsection
-
-
